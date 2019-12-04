@@ -4,17 +4,23 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * DollarDash is a game that tests user agility
+ * @author Louis
+ */
 public class DollarDash extends JFrame{
 
+    // Our Container object window
     Container window;
 
-    // Displays text, image, or both
+    // Window parameters
     JLabel lab;
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     Icon pic;
 
-    int lifeTotal = 5;
+    // The amount of clicks and speed of a dollar
+    int dollarHP = 5;
     int speed = 1;
 
     public DollarDash() {
@@ -43,13 +49,20 @@ public class DollarDash extends JFrame{
 
     // Mouse Listener
     public class Mouse extends MouseAdapter{
+        /**
+         * Method of MouseAdapter
+         * @param e event parameter
+         */
         public void mousePressed(MouseEvent e) {
-            lab.setText(lifeTotal-- +" ");
+            lab.setText(dollarHP-- +" ");
             speed +=2;
         }
     }
 
-
+    /**
+     * Run handles the game loop
+     * @throws Exception
+     */
     public void run() throws Exception {
 
         //start location
@@ -58,12 +71,12 @@ public class DollarDash extends JFrame{
         boolean yb = false;
         boolean xb = false;
 
-        //loop for the steps
-        while (lifeTotal >= 0) {
+        //changes the location of the dollar while it has more than 0 HP
+        while (dollarHP >= 0) {
             Thread.sleep(10);
             setLocation(x,y);
 
-            // direction
+            // sets the dollar in motion on the condition of how close it is to the screen's bounds
             if (y >= dim.getHeight() - 200) {
                 yb = true;
             }else if (y <= -200) {
@@ -91,15 +104,16 @@ public class DollarDash extends JFrame{
 
         }
 
+        // changes the animation if the user succeeds
         lab.setText(" ");
         lab.setIcon(new ImageIcon("assets\\splode.gif"));
-        //wait for 1.8 seconds
+
+        //holds the splode animation for 1.8 seconds
         Thread.sleep(1800);
         System.exit(0);
 
     }
 
-    //main
     public static void main(String[] args) {
 
         DollarDash frame = new DollarDash();
