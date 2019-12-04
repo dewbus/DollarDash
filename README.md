@@ -9,6 +9,9 @@ DollarDash is a simple game. The goal is for the user to click on a floating dol
 
 Any IDE that supports Java
 
+### Controls
+Use the mouse to click on the floating dollar. When the floating dollar has 0 HP left, you win the game.
+
 ## Installation
 
 1.) Clone or download the source files from the GitHub
