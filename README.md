@@ -16,7 +16,7 @@ Use the mouse to click on the floating dollar. When the floating dollar has 0 HP
 
 1.) Clone or download the source files from the GitHub
   
-1a.)If downloading the source files, make sure to unzip it before proceeding
+- If downloading the source files, make sure to unzip it before proceeding
 
 2.) Open the download as a project in the IDE
 
